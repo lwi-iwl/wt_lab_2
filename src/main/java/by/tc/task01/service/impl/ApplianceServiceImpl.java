@@ -7,24 +7,49 @@ import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.validation.Validator;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+/**
+ * The type for appliance data service
+ */
 public class ApplianceServiceImpl implements ApplianceService{
 
+	/**
+	 * Searcher for appliances by criteria.
+	 *
+	 * @param criteria the criteria for search
+	 * @return list of found appliances
+	 */
 	@Override
-	public Appliance find(Criteria criteria) {
+	public List<Appliance> find(Criteria criteria) throws FileNotFoundException {
 		if (!Validator.criteriaValidator(criteria)) {
 			return null;
 		}
 		
 		DAOFactory factory = DAOFactory.getInstance();
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
-		
-		Appliance appliance = applianceDAO.find(criteria);
-		
-		// you may add your own code here
-		
-		return appliance;
+		List<Appliance> appliances = applianceDAO.find(criteria);
+		return appliances;
+	}
+
+	/**
+	 * Searcher for appliances by criteria.
+	 *
+	 * @param comparator the comparator for price comparing
+	 * @return the found appliance
+	 */
+	public Appliance getMinPrice(Comparator<Appliance> comparator){
+		DAOFactory factory = DAOFactory.getInstance();
+		ApplianceDAO applianceDAO = factory.getApplianceDAO();
+		List<Appliance> appliances = applianceDAO.getAll();
+		appliances.sort(comparator);
+		//for (Appliance appliance:appliances){
+		//	System.out.println(appliance);
+		//}
+		return appliances.get(0);
 	}
 
 }
-
-//you may add your own new classes

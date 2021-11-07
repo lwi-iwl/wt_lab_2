@@ -1,6 +1,8 @@
 package by.tc.task01.entity.criteria;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Criteria {
@@ -19,7 +21,8 @@ public class Criteria {
 	public void add(String searchCriteria, Object value) {
 		criteria.put(searchCriteria, value);
 	}
-	
-	// you may add your own code here
 
+	public Map<String, Object> getCriteria() {
+		return criteria;
+	}
 }

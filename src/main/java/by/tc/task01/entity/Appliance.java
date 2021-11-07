@@ -1,14 +1,27 @@
 package by.tc.task01.entity;
 
-public class Appliance {
-    private float cost;
+import static java.lang.Float.compare;
+
+public class Appliance implements Comparable<Appliance>{
+    private String type;
+    private int price;
     private String name;
-	public void setCost(float cost){
-	    this.cost = cost;
+
+
+    public void setType(String type){
+        this.type = type;
     }
 
-    public float getCost(){
-	    return cost;
+    public String getType(){
+        return type;
+    }
+
+	public void setPrice(int price){
+	    this.price = price;
+    }
+
+    public int getPrice(){
+	    return price;
     }
 
     public void setName(String name){
@@ -17,6 +30,16 @@ public class Appliance {
 
     public String getName(){
 	    return name;
+    }
+
+    @Override
+    public int compareTo(Appliance obj) {
+        return compare(price, ((Appliance) obj).getPrice());
+    }
+
+    @Override
+    public String toString() {
+	    return "Type:" + getType() +", name: " + getName()+ ", price: " + getPrice();
     }
 
 }

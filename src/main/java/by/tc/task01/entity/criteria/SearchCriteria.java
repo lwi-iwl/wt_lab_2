@@ -1,29 +1,114 @@
 package by.tc.task01.entity.criteria;
 
+import java.util.ArrayList;
+
 public final class SearchCriteria {
-	
+
 	public static enum Oven{
-		POWER_CONSUMPTION, WEIGHT, CAPACITY, DEPTH, HEIGHT, WIDTH
+		PRICE("price"), NAME("name"), POWER_CONSUMPTION("powerConsumption"), WEIGHT("weight"), CAPACITY("capacity"), DEPTH("depth"), HEIGHT("height"), WIDTH("width");
+		private String enumName;
+		Oven(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
+
+		public static String getApplianceType() {
+			return "Oven";
+		}
 	}
 	
 	public static enum Laptop{
-		BATTERY_CAPACITY, OS, MEMORY_ROM, SYSTEM_MEMORY, CPU, DISPLAY_INCHS
+		PRICE("price"), NAME("name"), BATTERY_CAPACITY("batteryCapacity"), OS("os"), MEMORY_ROM("memoryRom"), SYSTEM_MEMORY("systemMemory"), CPU("cpu"), DISPLAY_INCHS("displayInches");
+		public static String getApplianceType() {
+			return "Laptop";
+		}
+
+		private String enumName;
+		Laptop(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
 	}
 	
 	public static enum Refrigerator{
-		POWER_CONSUMPTION, WEIGHT, FREEZER_CAPACITY, OVERALL_CAPACITY, HEIGHT, WIDTH
+		PRICE("price"), NAME("name"), POWER_CONSUMPTION("powerConsumption"), WEIGHT("weight"), FREEZER_CAPACITY("freezerCapacity"), OVERALL_CAPACITY("overallCapacity"), HEIGHT("height"), WIDTH("width");
+		public static String getApplianceType() {
+			return "Refrigerator";
+		}
+		private String enumName;
+		Refrigerator(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
 	}
 	
 	public static enum VacuumCleaner{
-		POWER_CONSUMPTION, FILTER_TYPE, BAG_TYPE, WAND_TYPE, MOTOR_SPEED_REGULATION, CLEANING_WIDTH
+		PRICE("price"), NAME("name"), POWER_CONSUMPTION("powerConsumption"), FILTER_TYPE("filterType"), BAG_TYPE("bagType"), WAND_TYPE("wandType"), MOTOR_SPEED_REGULATION("motorSpeedRegulation"), CLEANING_WIDTH("cleaningWidth");
+		public static String getApplianceType() {
+			return "VacuumCleaner";
+		}
+		private String enumName;
+		VacuumCleaner(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
 	}
 	
 	public static enum TabletPC{
-		BATTERY_CAPACITY, DISPLAY_INCHES, MEMORY_ROM, FLASH_MEMORY_CAPACITY, COLOR		
+		PRICE("price"), NAME("name"), BATTERY_CAPACITY("batteryCapacity"), DISPLAY_INCHES("displayInches"), MEMORY_ROM("memoryRom"), FLASH_MEMORY_CAPACITY("flashMemoryCapacity"), COLOR("color")	;
+		public static String getApplianceType() {
+			return "TabletPC";
+		}
+		private String enumName;
+		TabletPC(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
 	}
 	
 	public static enum Speakers{
-		POWER_CONSUMPTION, NUMBER_OF_SPEAKERS, FREQUENCY_RANGE, CORD_LENGTH
+		PRICE("price"), NAME("name"), POWER_CONSUMPTION("powerConsumption"), NUMBER_OF_SPEAKERS("numberOfSpeakers"), FREQUENCY_RANGE("frequencyRange"), CORD_LENGTH("cordLength");
+		public static String getApplianceType() {
+			return "Speakers";
+		}
+		private String enumName;
+		Speakers(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
+	}
+
+	public static enum ElectricKettle{
+		PRICE("price"), NAME("name"), POWER_CONSUMPTION("powerConsumption"), WEIGHT("weight"), CAPACITY("capacity"), HEIGHT("height"), WIDTH("width");
+		public static String getApplianceType() {
+			return "ElectricKettle";
+		}
+		private String enumName;
+		ElectricKettle(String enumName) {
+			this.enumName = enumName;
+		}
+		public String getEnumName(){
+			return enumName;
+		};
+
 	}
 	
 	private SearchCriteria() {}
