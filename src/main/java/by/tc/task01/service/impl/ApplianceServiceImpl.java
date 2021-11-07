@@ -13,15 +13,15 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * The type for appliance data service
+ * The type for appliance data service.
  */
 public class ApplianceServiceImpl implements ApplianceService{
 
 	/**
 	 * Searcher for appliances by criteria.
 	 *
-	 * @param criteria the criteria for search
-	 * @return list of found appliances
+	 * @param criteria the criteria for search.
+	 * @return list of found appliances.
 	 */
 	@Override
 	public List<Appliance> find(Criteria criteria) throws FileNotFoundException {
@@ -36,10 +36,10 @@ public class ApplianceServiceImpl implements ApplianceService{
 	}
 
 	/**
-	 * Searcher for appliances by criteria.
+	 * Searcher for min appliance by criteria.
 	 *
-	 * @param comparator the comparator for price comparing
-	 * @return the found appliance
+	 * @param comparator the comparator for price comparing.
+	 * @return the found appliance.
 	 */
 	public Appliance getMinPrice(Comparator<Appliance> comparator){
 		DAOFactory factory = DAOFactory.getInstance();

@@ -1,14 +1,21 @@
 package by.tc.task01.entity;
 
-import by.tc.task01.entity.criteria.SearchCriteria;
-
 import java.util.ArrayList;
 
+/**
+ * The type of factory for creating appliance.
+ */
 public class ApplianceFactory {
 
-    public Appliance getAppliance(String applianceType, ArrayList<String> infoParameters){
+    /**
+     * Gets appliance instance.
+     * @param applianceGroup group of appliance.
+     * @param infoParameters parameters of appliance.
+     * @return Appliance appliance instance.
+     */
+    public Appliance getAppliance(String applianceGroup, ArrayList<String> infoParameters){
         Appliance appliance;
-        switch (applianceType) {
+        switch (applianceGroup) {
             case  ("ElectricKettle"):
                 appliance = getElectricKettle(infoParameters);
                 break;
@@ -34,9 +41,14 @@ public class ApplianceFactory {
         return appliance;
     }
 
+    /**
+     * Gets electric kettle instance.
+     * @param infoParameters parameters of electric kettle.
+     * @return ElectricKettleInfo electric kettle instance.
+     */
     private ElectricKettleInfo getElectricKettle(ArrayList<String> infoParameters){
         ElectricKettleInfo electricKettleInfo = new ElectricKettleInfo();
-        electricKettleInfo.setType(infoParameters.get(0));
+        electricKettleInfo.setGroup(infoParameters.get(0));
         electricKettleInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         electricKettleInfo.setName(infoParameters.get(2));
         electricKettleInfo.setPowerConsumption(Integer.parseInt(infoParameters.get(3)));
@@ -47,9 +59,14 @@ public class ApplianceFactory {
         return electricKettleInfo;
     }
 
+    /**
+     * Gets laptop instance.
+     * @param infoParameters parameters of laptop.
+     * @return LaptopInfo laptop instance.
+     */
     private LaptopInfo getLaptop(ArrayList<String> infoParameters){
         LaptopInfo laptopInfo = new LaptopInfo();
-        laptopInfo.setType(infoParameters.get(0));
+        laptopInfo.setGroup(infoParameters.get(0));
         laptopInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         laptopInfo.setName(infoParameters.get(2));
         laptopInfo.setBatteryCapacity(Float.parseFloat(infoParameters.get(3)));
@@ -60,10 +77,14 @@ public class ApplianceFactory {
         laptopInfo.setDisplayInches(Integer.parseInt(infoParameters.get(8)));
         return laptopInfo;
     }
-
+    /**
+     * Gets oven instance.
+     * @param infoParameters parameters of oven.
+     * @return OvenInfo oven instance.
+     */
     private OvenInfo getOven(ArrayList<String> infoParameters){
         OvenInfo ovenInfo = new OvenInfo();
-        ovenInfo.setType(infoParameters.get(0));
+        ovenInfo.setGroup(infoParameters.get(0));
         ovenInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         ovenInfo.setName(infoParameters.get(2));
         ovenInfo.setPowerConsumption(Integer.parseInt(infoParameters.get(3)));
@@ -75,9 +96,14 @@ public class ApplianceFactory {
         return ovenInfo;
     }
 
+    /**
+     * Gets refrigerator instance.
+     * @param infoParameters parameters of refrigerator.
+     * @return RefrigeratorInfo refrigerator instance.
+     */
     private RefrigeratorInfo getRefrigerator(ArrayList<String> infoParameters){
         RefrigeratorInfo refrigeratorInfo = new RefrigeratorInfo();
-        refrigeratorInfo.setType(infoParameters.get(0));
+        refrigeratorInfo.setGroup(infoParameters.get(0));
         refrigeratorInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         refrigeratorInfo.setName(infoParameters.get(2));
         refrigeratorInfo.setPowerConsumption(Integer.parseInt(infoParameters.get(3)));
@@ -89,9 +115,14 @@ public class ApplianceFactory {
         return refrigeratorInfo;
     }
 
+    /**
+     * Gets speakers instance.
+     * @param infoParameters parameters of speakers.
+     * @return SpeakersInfo speakers instance.
+     */
     private SpeakersInfo getSpeakers(ArrayList<String> infoParameters){
         SpeakersInfo speakersInfo = new SpeakersInfo();
-        speakersInfo.setType(infoParameters.get(0));
+        speakersInfo.setGroup(infoParameters.get(0));
         speakersInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         speakersInfo.setName(infoParameters.get(2));
         speakersInfo.setPowerConsumption(Integer.parseInt(infoParameters.get(3)));
@@ -101,9 +132,14 @@ public class ApplianceFactory {
         return speakersInfo;
     }
 
+    /**
+     * Gets tabletPC instance.
+     * @param infoParameters parameters of tabletPC.
+     * @return TabletPCInfo tabletPC instance.
+     */
     private TabletPCInfo getTabletPC(ArrayList<String> infoParameters){
         TabletPCInfo tabletPCInfo = new TabletPCInfo();
-        tabletPCInfo.setType(infoParameters.get(0));
+        tabletPCInfo.setGroup(infoParameters.get(0));
         tabletPCInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         tabletPCInfo.setName(infoParameters.get(2));
         tabletPCInfo.setBatteryCapacity(Integer.parseInt(infoParameters.get(3)));
@@ -114,9 +150,14 @@ public class ApplianceFactory {
         return tabletPCInfo;
     }
 
+    /**
+     * Gets vacuum cleaner instance.
+     * @param infoParameters parameters of vacuum cleaner.
+     * @return VacuumCleanerInfo vacuum cleaner instance.
+     */
     private VacuumCleanerInfo getVacuumCleaner(ArrayList<String> infoParameters){
         VacuumCleanerInfo vacuumCleanerInfo = new VacuumCleanerInfo();
-        vacuumCleanerInfo.setType(infoParameters.get(0));
+        vacuumCleanerInfo.setGroup(infoParameters.get(0));
         vacuumCleanerInfo.setPrice(Integer.parseInt(infoParameters.get(1)));
         vacuumCleanerInfo.setName(infoParameters.get(2));
         vacuumCleanerInfo.setPowerConsumption(Integer.parseInt(infoParameters.get(3)));

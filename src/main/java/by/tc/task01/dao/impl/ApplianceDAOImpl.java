@@ -18,12 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type of DAO for xml data access.
+ */
 public class ApplianceDAOImpl implements ApplianceDAO{
 
+	/** ApplianceFactory instance field */
 	ApplianceFactory applianceFactory = new ApplianceFactory();
+
+	/**
+	 * Searcher for appliances by criteria.
+	 *
+	 * @param criteria the criteria for search.
+	 * @return list of found appliances.
+	 */
 	@Override
 	public List<Appliance> find(Criteria criteria) throws FileNotFoundException {
-		String typeName = criteria.getGroupSearchName();
+		String groupName = criteria.getGroupSearchName();
 		File xmlFile = new File("src/main/resources/appliances_db.xml");
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
@@ -31,7 +42,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 			builder = factory.newDocumentBuilder();
 			Document document = builder.parse(xmlFile);
 			document.getDocumentElement().normalize();
-			NodeList nodeList = document.getElementsByTagName(typeName);
+			NodeList nodeList = document.getElementsByTagName(groupName);
 			List<Appliance> appliances = new ArrayList<Appliance>();
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				NodeList childNodeList = nodeList.item(i).getChildNodes();
@@ -46,13 +57,13 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 				}
 				Set<String> applianceProperties = criteria.getCriteria().keySet();
 				if (applianceProperties.isEmpty()) {
-					appliances.add(applianceFactory.getAppliance(typeName, parameters));
+					appliances.add(applianceFactory.getAppliance(groupName, parameters));
 				}
 				else {
 					for (String property : applianceProperties) {
 						int index = parametersInfo.indexOf(property);
 						if ((index != -1) && (criteria.getCriteria().get(property).toString().equals(parameters.get(index)))) {
-							appliances.add(applianceFactory.getAppliance(typeName, parameters));
+							appliances.add(applianceFactory.getAppliance(groupName, parameters));
 						}
 					}
 				}
@@ -64,12 +75,24 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 		return null;
 	}
 
+	/**
+	 * Searcher for appliances by criteria.
+	 *
+	 * @param tag the element tag in xml.
+	 * @param element the element in which the tag is searched in xml.
+	 * @return The element that the tag fits.
+	 */
 	private static String getTagValue(String tag, Element element) {
 		NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
 		Node node = (Node) nodeList.item(0);
 		return node.getNodeValue();
 	}
 
+	/**
+	 * Searcher for all appliances.
+	 *
+	 * @return list of all appliances.
+	 */
 	public List<Appliance> getAll(){
 		File xmlFile = new File("src/main/resources/appliances_db.xml");
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

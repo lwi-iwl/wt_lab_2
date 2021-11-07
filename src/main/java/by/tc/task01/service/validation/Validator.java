@@ -5,15 +5,15 @@ import by.tc.task01.entity.criteria.Criteria;
 import java.util.Set;
 
 /**
- * The type to validate criteria
+ * The type to validate criteria.
  */
 public class Validator {
 
 	/**
-	 * Сhecking whether the product is valid
+	 * Criteria validation check.
 	 *
-	 * @param criteria the criteria to validate
-	 * @return boolean if valid
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
 	 */
 	public static boolean criteriaValidator(Criteria criteria) {
 		switch (criteria.getGroupSearchName()){
@@ -43,6 +43,12 @@ public class Validator {
 		return false;
 	}
 
+	/**
+	 * Electric Kettle criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean electricKettleValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -71,6 +77,12 @@ public class Validator {
 		return true;
 	}
 
+	/**
+	 * Laptop criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean laptopValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -99,6 +111,12 @@ public class Validator {
 		return true;
 	}
 
+	/**
+	 * Oven criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean ovenValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -127,6 +145,12 @@ public class Validator {
 		return true;
 	}
 
+	/**
+	 * Refrigerator criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean refrigeratorValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -155,7 +179,12 @@ public class Validator {
 		return true;
 	}
 
-
+	/**
+	 * Speakers criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean speakersValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -178,6 +207,12 @@ public class Validator {
 		return true;
 	}
 
+	/**
+	 * TabletPC criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean tabletPCValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {
@@ -200,7 +235,12 @@ public class Validator {
 		return true;
 	}
 
-
+	/**
+	 * Vacuum Cleaner criteria Validation check.
+	 *
+	 * @param criteria the criteria to validate.
+	 * @return boolean if valid.
+	 */
 	private static boolean vacuumCleanerValidator(Criteria criteria){
 		Set<String> applianceProperties = criteria.getCriteria().keySet();
 		for (String property: applianceProperties) {

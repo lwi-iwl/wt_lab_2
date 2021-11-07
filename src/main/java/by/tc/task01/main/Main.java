@@ -12,7 +12,7 @@ import by.tc.task01.service.ServiceFactory;
 import java.io.FileNotFoundException;
 import java.util.List;
 /**
- * The Main type
+ * The Main type.
  */
 
 public class Main {
@@ -20,13 +20,13 @@ public class Main {
 	/**
 	 * The entry point of the application.
 	 *
-	 * @param args arguments of command line
+	 * @param args arguments of command line.
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		List<Appliance> appliances;
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
-		Criteria criteria = new Criteria(SearchCriteria.ElectricKettle.getApplianceType());
+		Criteria criteria = new Criteria(SearchCriteria.ElectricKettle.getApplianceGroup());
 		//criteria.add(SearchCriteria.ElectricKettle.HEIGHT.getEnumName(), 20);
 		appliances = service.find(criteria);
 		if (appliances!=null) {
