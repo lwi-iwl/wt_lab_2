@@ -49,6 +49,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 				ArrayList<String> parameters = new ArrayList<String>();
 				parameters.add(nodeList.item(i).getNodeName());
 				ArrayList<String> parametersInfo = new ArrayList<String>();
+				parametersInfo.add("group");
 				for (int k = 0; k < childNodeList.getLength(); k++) {
 					if (!childNodeList.item(k).getNodeName().equals("#text")) {
 						parameters.add(getTagValue(childNodeList.item(k).getNodeName(),(Element)nodeList.item(i)));
